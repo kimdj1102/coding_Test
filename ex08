@@ -6,7 +6,7 @@
 /*   By: dongjuki <dongjuki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:39:46 by dongjuki          #+#    #+#             */
-/*   Updated: 2022/01/13 21:56:31 by dongjuki         ###   ########.fr       */
+/*   Updated: 2022/01/14 15:50:38 by dongjuki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,37 +27,34 @@ void	only_print(int size, char *nums)
 		ft_putchar(nums[i]);
 		i++;
 	}
-	ft_putchar(',');
-	ft_putchar(' ');
 }
 
-void	ft_print_nums(int arr_size, char *arr, int depth)
+void	ft_print_nums(int arr_size, char *arr, int *depth)
 {
-	while (arr[depth - 1] <= '9' + depth - arr_size)
+	while (arr[*depth - 1] <= '9' + *depth - arr_size)
 	{
-		printf("뎁스 : %d",depth);
-		arr[depth] = arr[depth - 1] + 1;
+		arr[*depth] = arr[*depth - 1] + 1;
 
-		if (depth == arr_size)
-
+		if (*depth == arr_size)
 		{
 			only_print(arr_size, arr);
+			if (arr[0] != '9' - arr_size + 1)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
 		}
 		else
 		{
-			ft_putchar('*');
-			ft_print_nums(arr_size, arr, ++depth);
-			ft_putchar('*');
+			*depth = *depth + 1;
+			ft_print_nums(arr_size, arr, depth);
 		}
-		if (arr[depth - 1] == '9' + depth - arr_size)
+		if (arr[*depth - 1] == '9' + *depth - arr_size)
 		{
-			ft_putchar('>');
-			ft_putchar(depth + 48);
-			ft_putchar('<');
-			depth = depth -1;
+			*depth = *depth -1;
 			break;
 		}
-		arr[depth - 1]++;
+		arr[*depth - 1]++;
 	}
 }
 
@@ -65,14 +62,15 @@ void	ft_print_combn(int n)
 {
 	int size = n;
 	int depth = 1;
+
 	char nums[9] = {'0'};
 
 	putchar(nums[0]);
-	ft_print_nums(size, nums, depth);
+	ft_print_nums(size, nums, &depth);
 }
 
 int	main(void)
 {
-	ft_print_combn(2);
+	ft_print_combn(3);
 	return (0);
 }
