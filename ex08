@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_combn.c                                   :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dongjuki <dongjuki@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:39:46 by dongjuki          #+#    #+#             */
-/*   Updated: 2022/01/14 15:50:38 by dongjuki         ###   ########.fr       */
+/*   Updated: 2022/01/15 00:16:59 by dj               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -34,7 +33,6 @@ void	ft_print_nums(int arr_size, char *arr, int *depth)
 	while (arr[*depth - 1] <= '9' + *depth - arr_size)
 	{
 		arr[*depth] = arr[*depth - 1] + 1;
-
 		if (*depth == arr_size)
 		{
 			only_print(arr_size, arr);
@@ -51,7 +49,7 @@ void	ft_print_nums(int arr_size, char *arr, int *depth)
 		}
 		if (arr[*depth - 1] == '9' + *depth - arr_size)
 		{
-			*depth = *depth -1;
+			*depth = *depth - 1;
 			break;
 		}
 		arr[*depth - 1]++;
@@ -60,17 +58,20 @@ void	ft_print_nums(int arr_size, char *arr, int *depth)
 
 void	ft_print_combn(int n)
 {
-	int size = n;
-	int depth = 1;
+	if (n > 0 && n < 10)
+	{
+		int size = n;
+		int depth = 1;
 
-	char nums[9] = {'0'};
-
-	putchar(nums[0]);
-	ft_print_nums(size, nums, &depth);
+		char nums[9] = {'0'};
+		ft_print_nums(size, nums, &depth);
+	}
+	else
+		return ;
 }
 
 int	main(void)
 {
-	ft_print_combn(3);
+	ft_print_combn(6);
 	return (0);
 }
