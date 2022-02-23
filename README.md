@@ -9,6 +9,6 @@
 
 ## 프로그래머스 알고리즘 풀이
 
-|Level||
+|Level|문제|
 |:------:|:---:|
 |1|[짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
