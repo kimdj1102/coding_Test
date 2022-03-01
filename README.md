@@ -39,4 +39,4 @@
 ## 유데미 알고리즘 풀이
 |Level|문제|
 |:------:|:---:|
-|1|[phone number]()
+|1|[phone number](https://github.com/kimdj1102/coding_Test/blob/main/phone%20number)
