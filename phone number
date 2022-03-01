@@ -1,0 +1,33 @@
+import Foundation
+
+func solution(_ S : String) -> String {
+    //공백, 대시 제거
+    let noSpace = S.replacingOccurrences(of: " ", with: "")
+    let noSpaceNoDash = noSpace.replacingOccurrences(of: "-", with: "")
+    
+    //대시 추가
+    var result = ""
+    var count = 1
+    for num in noSpaceNoDash {
+        result += String(num)
+        if count % 3 == 0 {
+            result += "-"
+        }
+        count += 1
+    }
+    
+    //마지막 대시 제거
+    if result.last == "-" {
+        result = String(result.dropLast())
+    }
+    
+    //정리
+    var chars = Array(result)
+    let secondLastPtr = chars.count - 2
+    if chars[secondLastPtr] == "-" {
+        chars[secondLastPtr] = chars[secondLastPtr - 1]
+        chars[secondLastPtr - 1] = "-"
+    }
+    
+    return String(chars)
+}
