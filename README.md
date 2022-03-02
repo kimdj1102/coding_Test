@@ -19,7 +19,7 @@
 |1|[자릿수 더하기](https://programmers.co.kr/learn/courses/30/lessons/12931)
 |1|[이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
 |1|[약수의 합](https://programmers.co.kr/learn/courses/30/lessons/12928)
-|1|[]()
+|1|[시저 암호](https://programmers.co.kr/learn/courses/30/lessons/12926)
 |1|[]()
 |1|[]()
 |1|[]()
